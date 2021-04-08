@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="1 minute" debug="false">
+
+    <!-- Console -->
+    <appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5p %class{10} - %m%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="org.example" level="INFO"/>
+    <logger name="com.microsoft.sqlserver.jdbc.internals.SQLServerResultSet" level="TRACE"/>
+
+    <!-- RootLogger -->
+    <root level="INFO">
+        <appender-ref ref="consoleAppender"/>
+    </root>
+
+    <!-- Java Util Logging -->
+    <contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator">
+        <resetJUL>true</resetJUL>
+    </contextListener>
+
+</configuration>
